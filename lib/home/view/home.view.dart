@@ -7,7 +7,6 @@ import 'package:base_architecture/home/utils/strings.dart';
 import 'package:base_architecture/home/view_models/home.viewmodel.dart';
 import 'package:base_architecture/locator.dart';
 import 'package:base_architecture/shared/assets/image.assets.dart';
-import 'package:base_architecture/shared/routes/routes.dart';
 import 'package:base_architecture/shared/services/navigation.service.dart';
 import 'package:shared_components/shared_components.dart';
 
@@ -40,6 +39,7 @@ class _HomeViewState extends State<HomeView> {
         }
 
         return CustomScaffold(
+          appbarBackground: true,
           enableGutter: false,
           child: SingleChildScrollView(
             key: const Key('singleChildScrollView'),

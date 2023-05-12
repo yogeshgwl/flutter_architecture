@@ -50,6 +50,10 @@ dependencies:
   app_theme:
     path: packages/app_theme
 
+  # localization
+  flutter_localizations:
+    sdk: flutter
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -62,14 +66,16 @@ dev_dependencies:
   integration_test:
     sdk: flutter
 
+
+
 flutter:
   uses-material-design: true
 
   assets:
     - assets/data/
     - assets/images/
-    - assets/images/2.0x/
-    - assets/images/3.0x/
+    - assets/images/xxl/
+    - assets/images/xxxl/
 
   fonts:
     - family: Roboto

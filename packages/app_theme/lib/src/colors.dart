@@ -12,7 +12,7 @@ class AppColors {
   static Color pending = HexColor.fromHex('#E6AC28');
 
   static Color pressedBlue = HexColor.fromHex('#0A497B');
-  static Color primaryBlue = HexColor.fromHex('#0076CE');
+  static Color primaryBlue = HexColor.fromHex('#013988');
 
   static Color baseElevation = const Color.fromRGBO(126, 126, 126, 0.7);
 

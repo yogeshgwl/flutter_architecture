@@ -1,17 +1,14 @@
-import 'package:carousel_slider/carousel_slider.dart';
-
-import 'package:flutter/material.dart';
-import 'package:shared_components/shared_components.dart';
-
-import 'package:provider/provider.dart';
-
 import 'package:base_architecture/home/components/carousel_card/carousel_card.component.dart';
 import 'package:base_architecture/home/components/indicator/dot_indicator.component.dart';
 import 'package:base_architecture/home/model/carousel.model.dart';
 
 import 'package:base_architecture/home/utils/strings.dart';
 
-import 'package:base_architecture/home/view_models/home.viewmodel.dart';
+import 'package:base_architecture/login/view_models/login.viewmodel.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_components/shared_components.dart';
 
 class CarouselTemplate extends StatefulWidget {
   const CarouselTemplate({Key? key}) : super(key: key);
@@ -25,7 +22,7 @@ class _CarouselTemplateState extends State<CarouselTemplate> {
 
   @override
   Widget build(BuildContext context) {
-    final model = context.watch<HomeViewModel>().homeModel;
+    final model = context.watch<LoginViewModel>().loginModel;
 
     return ColumnSpacer(
       crossAxisAlignment: CrossAxisAlignment.start,

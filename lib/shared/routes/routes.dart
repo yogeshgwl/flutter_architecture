@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:base_architecture/home/view/home.view.dart';
+import 'package:base_architecture/login/view/login.view.dart';
 
 class AppRoutes {
   AppRoutes._();
@@ -9,7 +9,7 @@ class AppRoutes {
     switch (settings.name) {
       case NamedRoute.home:
         return MaterialPageRoute<void>(
-          builder: (context) => const HomeView(),
+          builder: (context) => const LoginView(),
           settings: settings,
         );
 

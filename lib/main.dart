@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
-
 import 'package:app_theme/app_theme.dart' show AppTheme;
+import 'package:base_architecture/login/repository/login_repo.dart';
+import 'package:base_architecture/login/view_models/login.viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:base_architecture/home/repository/home_repo.dart';
-import 'home/view_models/home.viewmodel.dart';
+
 import 'locator.dart';
 import 'shared/routes/routes.dart';
 import 'shared/services/navigation.service.dart';
@@ -19,7 +18,7 @@ Future<void> main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => HomeViewModel(repo: locator<HomeRepo>()),
+          create: (_) => LoginViewModel(repo: locator<LoginRepo>()),
         ),
       ],
       child: MainApp(),

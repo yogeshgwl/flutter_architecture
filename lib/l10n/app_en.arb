@@ -1,0 +1,10 @@
+{
+  "helloWorld": "Hello World!",
+  "description": "You have pushed the button this many times",
+  "username": "Username",
+  "signup": "SignUp",
+  "submit": "Submit",
+  "invalidCredentials": "Invalid Credentials",
+  "noEmptyFieldsAllowed": "No Empty Fields Allowed",
+  "welcome": "Welcome"
+}

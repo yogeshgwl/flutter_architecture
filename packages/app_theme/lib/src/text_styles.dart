@@ -56,7 +56,7 @@ class TextStyles {
   static const TextStyle _bodyRegular = TextStyle(
     fontFamily: Fonts.roboto,
     fontWeight: FontWeight.w400,
-    fontSize: 14,
+    fontSize: 16,
     color: Colors.white,
     height: 18 / 14,
   );

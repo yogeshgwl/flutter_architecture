@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class H3TextComponent extends StatelessWidget {
-  const H3TextComponent(
+class H2TextComponent extends StatelessWidget {
+  const H2TextComponent(
       {Key? key,
       this.text = 'Some text',
       this.rightValue = 0.0,
@@ -24,6 +24,6 @@ class H3TextComponent extends StatelessWidget {
             bottom: bottomValue,
             left: leftValue,
             right: rightValue),
-        child: Text(text, style: Theme.of(context).textTheme.headline3));
+        child: Text(text, style: Theme.of(context).textTheme.headline2));
   }
 }

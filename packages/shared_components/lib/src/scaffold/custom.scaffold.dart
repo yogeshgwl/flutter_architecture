@@ -7,10 +7,12 @@ class CustomScaffold extends StatelessWidget {
     Key? key,
     required this.child,
     this.enableGutter = true,
+    this.appbarBackground = true,
   }) : super(key: key);
 
   final Widget child;
   final bool enableGutter;
+  final bool appbarBackground;
 
   Widget get _checkGutter {
     if (enableGutter) {
@@ -25,10 +27,16 @@ class CustomScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(backgroundColor: AppColors.bg),
-      backgroundColor: AppColors.bg,
-      body: SafeArea(child: _checkGutter),
-    );
+    if (appbarBackground)
+      return Scaffold(
+        appBar: AppBar(backgroundColor: AppColors.primaryBlue),
+        backgroundColor: AppColors.primaryBlue,
+        body: SafeArea(child: _checkGutter),
+      );
+    else
+      return Scaffold(
+        backgroundColor: AppColors.primaryBlue,
+        body: SafeArea(child: _checkGutter),
+      );
   }
 }

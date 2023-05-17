@@ -1,20 +1,34 @@
 import 'package:base_architecture/gen/assets.gen.dart';
+import 'package:base_architecture/login/view_models/login.viewmodel.dart';
 import 'package:base_architecture/shared/theme/dimens.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 
 class TextFieldFormUsername extends StatefulWidget {
-  const TextFieldFormUsername({Key? key}) : super(key: key);
-
+  const TextFieldFormUsername({Key? key, required this.voidCallback}) : super(key: key);
+  final VoidCallback voidCallback;
   @override
   State<TextFieldFormUsername> createState() => _TextFieldFormUsernameState();
 }
 
 class _TextFieldFormUsernameState extends State<TextFieldFormUsername> {
+  final TextEditingController userNameController = TextEditingController();
+  late LoginViewModel viewModel;
+
+  @override
+  void initState() {
+    viewModel = Provider.of<LoginViewModel>(context, listen: false);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      // controller: userNameController,
+    return TextFormField(
+      controller: userNameController,
+      onChanged: (userName) {
+        viewModel.username  = userNameController.text;
+        this.widget.voidCallback();
+      },
       textAlignVertical: TextAlignVertical.center,
       textInputAction: TextInputAction.next,
       cursorColor: Colors.white,
@@ -79,7 +93,12 @@ class _TextFieldFormUsernameState extends State<TextFieldFormUsername> {
       ),
       style: Theme.of(context).textTheme.bodyText1,
       keyboardType: TextInputType.name,
-      //validator: _model.textController1Validator.asValidator(context),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return "Username can't be empty";
+        }
+        return null;
+      },
     );
   }
 }

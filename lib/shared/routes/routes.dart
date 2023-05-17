@@ -1,6 +1,9 @@
+import 'package:base_architecture/login/view/forgot_password_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:base_architecture/login/view/login.view.dart';
+
+import '../../home/view/dashboard.view.dart';
 
 class AppRoutes {
   AppRoutes._();
@@ -13,17 +16,17 @@ class AppRoutes {
           settings: settings,
         );
 
-      // case NamedRoute.pellen:
-      //   return MaterialPageRoute<void>(
-      //     builder: (context) => const PellenView(),
-      //     settings: settings,
-      //   );
+      case NamedRoute.forgotPassword:
+        return MaterialPageRoute<void>(
+          builder: (context) => const ForgotPassword(),
+          settings: settings,
+        );
 
-      // case NamedRoute.fringilla:
-      //   return MaterialPageRoute<void>(
-      //     builder: (context) => const FringillaView(),
-      //     settings: settings,
-      //   );
+      case NamedRoute.dashboard:
+        return MaterialPageRoute<void>(
+          builder: (context) => const DashboardView(),
+          settings: settings,
+        );
 
       default:
         return MaterialPageRoute<void>(
@@ -52,6 +55,6 @@ class NamedRoute {
   NamedRoute._();
 
   static const String home = '/';
-  // static const String pellen = '/pellen';
-  // static const String fringilla = '/fringilla';
+  static const String forgotPassword = '/forgotPassword';
+  static const String dashboard = '/dashboard';
 }

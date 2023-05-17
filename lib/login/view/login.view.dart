@@ -1,4 +1,5 @@
 import 'package:base_architecture/login/view_models/login.viewmodel.dart';
+import 'package:base_architecture/shared/buttons/appbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_components/shared_components.dart';
@@ -7,7 +8,7 @@ import 'package:shared_components/src/text/h2_text.component.dart';
 import 'package:shared_components/src/text/textfield_form_password.dart';
 import 'package:shared_components/src/text/textfield_form_username.dart';
 
-import '../../shared/buttons/appbuttonwidget.dart';
+import '../../shared/routes/routes.dart' as route;
 import '../../shared/theme/dimens.dart';
 import '../../shared/theme/text_styles.dart';
 
@@ -33,6 +34,17 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+    void _voidCallback() {
+      setState(() {
+        print("================${viewModel.isChecked}");
+        viewModel.validateCheckbox();
+      });
+    }
+    void _doLogin() {
+      setState(() {
+        viewModel.navigateToDashBoard();
+      });
+    }
     return Consumer<LoginViewModel>(
       builder: (_, model, child) {
         if (model.isLoading) {
@@ -59,34 +71,44 @@ class _LoginViewState extends State<LoginView> {
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      TextFieldFormUsername(),
+                      TextFieldFormUsername(voidCallback: _voidCallback),
                       SpacerVertical(20),
-                      TextFieldFormPassword(),
-                      Container(
-                          margin: EdgeInsets.only(
-                              top: size_15,
-                              right: 0,
-                              bottom: size_0,
-                              left: size_10),
-                          alignment: AlignmentDirectional.centerEnd,
-                          child: Text(
-                            'Forgot Password ?',
-                            style: TextStyle(
-                                fontSize: size_16,
-                                fontWeight: FontWeight.normal),
-                          )),
+                      TextFieldFormPassword(voidCallback: _voidCallback),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, route.NamedRoute.forgotPassword);
+                        },
+                        child: Container(
+                            margin: EdgeInsets.only(
+                                top: size_15,
+                                right: 0,
+                                bottom: size_0,
+                                left: size_10),
+                            alignment: AlignmentDirectional.centerEnd,
+                            child: Text(
+                              'Forgot Password ?',
+                              style: TextStyle(
+                                  fontSize: size_16,
+                                  fontWeight: FontWeight.normal),
+                            )),
+                      ),
                     ],
                   ),
                 ),
                 Container(
                     margin: EdgeInsets.only(
                         left: size_10, right: 0, top: 0, bottom: 0),
-                    child: CheckBoxComponent()),
+                    child: CheckBoxComponent(voidCallback: _voidCallback)),
                 SpacerVertical(size_20),
                 Container(
+                    decoration: BoxDecoration(color: Colors.transparent),
                     alignment: Alignment.center,
-                    child:
-                        AppButtonWidget(voidCallback: () {} /*_voidCallback*/)),
+                    child: AppButton(voidCallback: (isButtonEnable) {
+                      if (isButtonEnable) {
+                        _doLogin();
+                      }
+                    })),
                 SpacerVertical(size_20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -105,5 +127,4 @@ class _LoginViewState extends State<LoginView> {
       child: LoadingComponent(),
     );
   }
-
 }

@@ -13,6 +13,7 @@ class AppColors {
 
   static Color pressedBlue = HexColor.fromHex('#0A497B');
   static Color primaryBlue = HexColor.fromHex('#013988');
+  static Color primaryBlueDisable = HexColor.fromHex('#4d74ab');
 
   static Color baseElevation = const Color.fromRGBO(126, 126, 126, 0.7);
 
